@@ -36,7 +36,7 @@ The Devise Wiki has lots of additional information about Devise including many "
 
 https://wiki.github.com/plataformatec/devise
 
-=== Bug reports
+### Bug reports
 
 If you discover a problem with Devise, we would like to know about it. However, we ask that you please review these guidelines before submitting a bug report:
 
@@ -44,13 +44,13 @@ https://github.com/plataformatec/devise/wiki/Bug-reports
 
 If you found a security bug, do *NOT* use the GitHub issue tracker. Send email or a private GitHub message to the maintainers listed at the bottom of the README.
 
-=== Mailing list
+### Mailing list
 
 If you have any questions, comments, or concerns, please use the Google Group instead of the GitHub issue tracker:
 
 https://groups.google.com/group/plataformatec-devise
 
-=== RDocs
+### RDocs
 
 You can view the Devise documentation in RDoc format here:
 
@@ -58,19 +58,19 @@ http://rubydoc.info/github/plataformatec/devise/master/frames
 
 If you need to use Devise with Rails 2.3, you can always run `gem server` from the command line after you install the gem to access the old documentation.
 
-=== Example applications
+### Example applications
 
 There are a few example applications available on GitHub that demonstrate various features of Devise with different versions of Rails. You can view them here:
 
 https://github.com/plataformatec/devise/wiki/Example-Applications
 
-=== Extensions
+### Extensions
 
 Our community has created a number of extensions that add functionality above and beyond what is included with Devise. You can view a list of available extensions and add your own here:
 
 https://github.com/plataformatec/devise/wiki/Extensions
 
-=== Contributing
+### Contributing
 
 We hope that you will consider contributing to Devise. Please read this short overview for some information about how to get started:
 
@@ -78,7 +78,7 @@ https://github.com/plataformatec/devise/wiki/Contributing
 
 You will usually want to write tests for your changes.  To run the test suite, `cd` into Devise's top-level directory and run `bundle install` and `rake`.  For the tests to pass, you will need to have a MongoDB server (version 2.0 or newer) running on your system.
 
-== Installation
+# Installation
 
 You can use the latest Rails 3 gem with the latest Devise gem:
 
@@ -96,7 +96,7 @@ Replace MODEL by the class name used for the applications users, it's frequently
 
 Support for Rails 2.3.x can be found by installing Devise 1.0.x from the v1.0 branch.
 
-== Starting with Rails?
+# Starting with Rails?
 
 If you are building your first Rails application, we recommend you to *not* use Devise. Devise requires a good understanding of the Rails Framework. In such cases, we advise you to start a simple authentication system from scratch, today we have two resources:
 
@@ -105,7 +105,7 @@ If you are building your first Rails application, we recommend you to *not* use 
 
 Once you have solidified your understanding of Rails and authentication mechanisms, we assure you Devise will be very pleasant to work with. :)
 
-== Getting started
+# Getting started
 
 This is a walkthrough with all steps you need to setup a devise resource, including model, migration, route files, and optional configuration.
 
@@ -138,7 +138,7 @@ This will use your User model to create a set of needed routes (you can see them
 
 Don't forget to run rake db:migrate and you are ready to go! But don't stop reading here, we still have a lot to tell you.
 
-=== Controller filters and helpers
+### Controller filters and helpers
 
 Devise will create some helpers to use inside your controllers and views. To set up a controller with user authentication, just add this before_filter:
 
@@ -176,7 +176,7 @@ Notice that if your devise model is not called "user" but "member", then the hel
 
   member_session
 
-=== Configuring Models
+### Configuring Models
 
 The devise method in your models also accepts some options to configure its modules. For example, you can choose which encryptor to use in database_authenticatable:
 
@@ -184,7 +184,7 @@ The devise method in your models also accepts some options to configure its modu
 
 Besides :stretches, you can define :pepper, :encryptor, :confirm_within, :remember_for, :timeout_in, :unlock_in and other values. For details, see the initializer file that was created when you invoked the "devise:install" generator described above.
 
-=== Configuring multiple models
+### Configuring multiple models
 
 Devise allows you to set up as many roles as you want. For example, you may have a User model and also want an Admin model with just authentication, trackable, lockable and timeoutable features and no confirmation or password-recovery features. Just follow these steps:
 
@@ -210,7 +210,7 @@ Devise allows you to set up as many roles as you want. For example, you may have
   current_admin
   admin_session
 
-=== Configuring views
+### Configuring views
 
 We built Devise to help you quickly develop an application that uses authentication. However, we don't want to be in your way when you need to customize it.
 
@@ -224,7 +224,7 @@ After doing so, you will be able to have views based on the role like "users/ses
 
   rails generate devise:views users
 
-=== Configuring controllers
+### Configuring controllers
 
 If the customization at the views level is not enough, you can customize each controller by following these steps:
 
@@ -241,7 +241,7 @@ If the customization at the views level is not enough, you can customize each co
 
 Remember that Devise uses flash messages to let users know if sign in was successful or failed. Devise expects your application to call "flash[:notice]" and "flash[:alert]" as appropriate.
 
-=== Configuring routes
+### Configuring routes
 
 Devise also ships with default routes. If you need to customize them, you should probably be able to do it through the devise_for method. It accepts several options like :class_name, :path_prefix and so on, including the possibility to change path names for I18n:
 
@@ -263,7 +263,7 @@ This way you tell devise to use the scope :user when "/sign_in" is accessed. Not
 
 Feel free to choose the one you prefer!
 
-=== I18n
+### I18n
 
 Devise uses flash messages with I18n with the flash keys :notice and :alert. To customize your app, you can set up your locale file:
 
@@ -297,7 +297,7 @@ Take a look at our locale file to check all available messages. You may also be 
 
 https://github.com/plataformatec/devise/wiki/I18n
 
-=== Test helpers
+### Test helpers
 
 Devise includes some tests helpers for functional specs. To use them, you just need to include Devise::TestHelpers in your test class and use the sign_in and sign_out method. Such methods have the same signature as in controllers:
 
@@ -321,23 +321,23 @@ If you're using RSpec and want the helpers automatically included within all +de
 
 Do not use such helpers for integration tests such as Cucumber or Webrat. Instead, fill in the form or explicitly set the user in session. For more tips, check the wiki (https://wiki.github.com/plataformatec/devise).
 
-=== Omniauth
+### Omniauth
 
 Devise comes with Omniauth support out of the box to authenticate from other providers. You can read more about Omniauth support in the wiki:
 
 * https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
 
-=== Other ORMs
+### Other ORMs
 
 Devise supports ActiveRecord (default) and Mongoid. To choose other ORM, you just need to require it in the initializer file.
 
-=== Migrating from other solutions
+### Migrating from other solutions
 
 Devise implements encryption strategies for Clearance, Authlogic and Restful-Authentication. To make use of these strategies, you need set the desired encryptor in the encryptor initializer config option and add :encryptable to your model. You might also need to rename your encrypted password and salt columns to match Devise's fields (encrypted_password and password_salt).
 
-== Troubleshooting
+# Troubleshooting
 
-=== Heroku
+### Heroku
 
 Using devise on Heroku with Ruby on Rails 3.1 requires setting:
 
@@ -345,26 +345,26 @@ Using devise on Heroku with Ruby on Rails 3.1 requires setting:
 
 Read more about the potential issues at http://guides.rubyonrails.org/asset_pipeline.html
 
-== Additional information
+# Additional information
 
-=== Warden
+### Warden
 
 Devise is based on Warden, which is a general Rack authentication framework created by Daniel Neighman. We encourage you to read more about Warden here:
 
 https://github.com/hassox/warden
 
-=== Contributors
+### Contributors
 
 We have a long list of valued contributors. Check them all at:
 
 https://github.com/plataformatec/devise/contributors
 
-=== Maintainers
+### Maintainers
 
 * José Valim (https://github.com/josevalim)
 * Carlos Antônio da Silva (https://github.com/carlosantoniodasilva)
 * Rodrigo Flores (https://github.com/rodrigoflores)
 
-== License
+# License
 
 MIT License. Copyright 2011 Plataforma Tecnologia. http://blog.plataformatec.com.br
