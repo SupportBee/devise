@@ -1,10 +1,10 @@
-== Patch
+# Patch
 
-The Repo was forked to fix a minor bug in the way devise sends Confirmation Instructions. In `v1.5.3` the instructions were being sent in an `after_create` callback, which created an issue if you are sending devise emails in a background job using [devise-async](https://github.com/mhfs/devise-async), as the background jobs were trying to run before the record was commited to the DB.
+This Repo was forked to fix a minor bug in the way devise sends Confirmation Instructions. In `v1.5.3` the instructions were being sent in an `after_create` callback, which created an issue if you are sending devise emails in a background job using [devise-async](https://github.com/mhfs/devise-async), as the background jobs were trying to run before the record was commited to the DB.
 
 This patch sends the confirmation instructions email in an `after_commit` callback. This is a workaround for older versions of devise (< 2.1), the issue has been fixed in the newer version of the gem.
 
-== Devise
+# Devise
 
 Devise is a flexible authentication solution for Rails based on Warden. It:
 
@@ -28,9 +28,9 @@ It's comprised of 12 modules:
 * Lockable: locks an account after a specified number of failed sign-in attempts. Can unlock via email or after a specified time period.
 * Encryptable: adds support of other authentication mechanisms besides the built-in Bcrypt (the default).
 
-== Information
+# Information
 
-=== The Devise wiki
+### The Devise wiki
 
 The Devise Wiki has lots of additional information about Devise including many "how-to" articles and answers to the most frequently asked questions. Please browse the Wiki after finishing this README:
 
