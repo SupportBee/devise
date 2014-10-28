@@ -1,6 +1,10 @@
-== Devise
+== Patch
 
-{<img src="https://secure.travis-ci.org/plataformatec/devise.png" />}[http://travis-ci.org/plataformatec/devise]
+The Repo was forked to fix a minor bug in the way devise sends Confirmation Instructions. In `v1.5.3` the instructions were being sent in an `after_create` callback, which created an issue if you are sending devise emails in a background job using [devise-async](https://github.com/mhfs/devise-async), as the background jobs were trying to run before the record was commited to the DB.
+
+This patch sends the confirmation instructions email in an `after_commit` callback. This is a workaround for older versions of devise (< 2.1), the issue has been fixed in the newer version of the gem.
+
+== Devise
 
 Devise is a flexible authentication solution for Rails based on Warden. It:
 
